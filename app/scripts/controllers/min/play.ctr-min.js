@@ -1,0 +1,1 @@
+!function(){"use strict";function t(){this.question=JSON.parse(window.localStorage.getItem("question")).question,console.log(this.question.title)}angular.module("app").controller("PlayCtrl",t),t.$inject=[]}();

@@ -1,0 +1,13 @@
+<h1>Play</h1>
+
+<div>
+  <div>
+    <p class="txt-question">{{ play.question.title }}</p>
+  </div>
+  <div ng-show="play.question.image">
+    Image goes here
+  </div>
+  <div ng-repeat="option in play.question.options">
+    <span class="btn btn-answer">{{ option.text }}</span>
+  </div>
+</div>

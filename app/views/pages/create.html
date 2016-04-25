@@ -1,0 +1,63 @@
+<h1>Create</h1>
+<div class="card">
+  <div class="col col-3 q-image">
+    <img class="question" src="{{ create.question.image }}" alt="Image that has meaning to question">
+  </div>
+  <div class="col col-9">
+    <!-- Question -->
+    <div class="card-row">
+      <input type="text" class="txt txt-default" placeholder="Question">
+    </div>
+    <!-- Image -->
+    <div class="card-row">
+      <input type="text" class="txt txt-default" placeholder="Image url" ng-model="create.question.image">
+    </div>
+    <!-- Options -->
+    <div class="card-row">
+      <div ng-repeat="option in create.question.options">
+        <input type="checkbox" ng-model="option.correct">
+        <input type="text" class="txt txt-default" placeholder="Option" ng-model="option.text" ng-keydown="create.addOption($event)" tab-to-next>
+        <button ng-click="create.removeOption($index)">Remove</button>
+      </div>
+    </div>
+    <!-- Actions -->
+    <div class="card-row">
+      <button disabled class="btn btn-success-outline" ng-click="create.addOption()">Add option</button>
+      <button class="btn btn-primary-outline" ng-click="create.saveQuestion()">Create question</button>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+<!--
+<div>
+  <div>
+    <label>
+      Title
+      <input type="text" ng-model="create.question.title" />
+    </label>
+    <label>
+      Image
+      <input type="text" ng-model="create.question.image" />
+    </label>
+
+
+
+  </div>
+  <div ng-repeat="option in create.question.options">
+    <input type="checkbox" ng-model="option.correct">
+    <input type="text" ng-model="option.text" ng-keydown="create.addOption($event)" tab-to-next>
+    <span ng-click="create.removeOption($index)">Remove</span>
+  </div>
+  <div>
+    <input type="button" ng-click="create.addOption()" value="Add option">
+    <input type="button" ng-click="create.saveQuestion()" value="Add question">
+  </div>
+</div>
+-->
