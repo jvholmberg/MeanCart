@@ -10,13 +10,13 @@ define(['app', 'createCtrl', 'playCtrl'], function(app, createCtrl, playCtrl) {
   function config($routeProvider) {
     $routeProvider
       .when('/', {
-        css: 'app/styles/css/create.css'
+        css: 'app/styles/css/create-min.css'
       })
       .when('/create', {
         templateUrl: 'app/views/pages/create.html',
         controller: 'CreateCtrl',
         controllerAs: 'create',
-        css: 'app/styles/css/create.css'
+        css: 'app/styles/css/create-min.css'
       })
       .when('/edit', {
 
@@ -28,7 +28,7 @@ define(['app', 'createCtrl', 'playCtrl'], function(app, createCtrl, playCtrl) {
         templateUrl: 'app/views/pages/play.html',
         controller: 'PlayCtrl',
         controllerAs: 'play',
-        css: 'app/styles/css/play.css'
+        css: 'app/styles/css/play-min.css'
       })
       .otherwise({
         redirectTo: '/'
