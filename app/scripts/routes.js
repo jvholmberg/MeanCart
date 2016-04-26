@@ -1,4 +1,6 @@
-define(function() {
+define(['app', 'createCtrl', 'playCtrl'], function(app, createCtrl, playCtrl) {
+  'use strict';
+
   angular
     .module('app')
     .config(config);

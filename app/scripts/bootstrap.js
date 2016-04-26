@@ -34,13 +34,13 @@ require.config({
       deps: ['angular']
     },
     app: {
-      deps: ['angular', 'angularRoute', 'angularUiRouter', 'angularCSS']
+      deps: ['angular']
     },
     routes: {
-      deps: ['angular', 'angularRoute', 'angularUiRouter', 'angularCSS']
+      deps: ['angularRoute', 'angularUiRouter', 'angularCSS', 'app']
     }
   }
 });
-require(['app'], function() {
+require(['app', 'routes'], function() {
   angular.bootstrap(document, ['app']);
 });
