@@ -4,11 +4,11 @@ require.config({
 
     // Dependencies
     angular: '../../bower_components/angular/angular',
-    angularCSS: '../../bower_components/angular-css/angular-css',
-    angularRoute: '../../node_modules/angular-route/angular-route',
+    angularRoute: '../../bower_components/angular-route/angular-route',
     angularUiRouter: '../../node_modules/angular-ui-router/release/angular-ui-router',
+    angularCSS: '../../bower_components/angular-css/angular-css',
 
-    // Starters
+    // Modules and routing
     app: 'app',
     routes: 'routes',
 
