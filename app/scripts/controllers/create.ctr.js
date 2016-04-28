@@ -1,6 +1,6 @@
 define(['app'], function(app) {
   'use strict';
-  
+
   angular
     .module('app')
     .controller('CreateCtrl', createCtrl);
@@ -8,33 +8,42 @@ define(['app'], function(app) {
   createCtrl.$inject = [];
 
   function createCtrl() {
-    this.question = {
+    this.questions = [{
       title: '',
       image: '',
       options: [{correct: false, text: ''}]
+    }];
+    // Add / Remove questions
+    this.addQuestion = function() {
+      this.questions.push({
+        title: '',
+        image: '',
+        options: [{correct: false, text: ''}]
+      });
     };
-
-    this.addOption = function(ev) {
-      // Do not allow more than 10 options per question
-      if(this.question.options.length === 10) {
+    this.removeQuestion = function(index) {
+      this.questions.splice(index, 1);
+    };
+    // Add / Remove options
+    this.addOption = function(question, ev) {
+      if(question.options.length === 10) {
         return;
       }
-      // Add new option on tab or click
       if(ev === undefined) {
-        this.question.options.push({correct: false, text: ''});
-      } else if(ev.keyCode === 9) {
-        this.question.options.push({correct: false, text: ''});
+        question.options.push({correct: false, text: ''});
+      } else if(ev.code === 'Tab') {
+        question.options.push({correct: false, text: ''});
         var target = angular.element(ev.target);
         var sibling = angular.element(target[0].nextSibling);
       }
     };
-    this.removeOption = function(i) {
-      this.question.options.splice(i, 1);
+    this.removeOption = function(question, index) {
+      question.options.splice(index, 1);
     };
-    this.saveQuestion = function() {
-      window.localStorage.setItem('question', JSON.stringify({
-        question: this.question,
-        options: this.options
+    // Save quiz
+    this.saveQuiz = function() {
+      window.localStorage.setItem('quiz', JSON.stringify({
+        quiz: this.questions
       }));
     };
   }
