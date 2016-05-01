@@ -2,12 +2,15 @@
 
 <div>
   <div>
-    <p class="txt-question">{{ play.question.title }}</p>
+    <p class="txt-question">{{ play.currentQuestion.title }}</p>
   </div>
   <div ng-show="play.question.image">
     Image goes here
   </div>
-  <div ng-repeat="option in play.question.options">
-    <span class="btn btn-answer">{{ option.text }}</span>
+  <div ng-repeat="option in play.currentQuestion.options">
+
+    <span class="btn btn-primary" ng-click="play.answerQuestion($index)">
+      {{ option.text }}
+    </span>
   </div>
 </div>

@@ -8,6 +8,8 @@ define(['app'], function(app) {
   createCtrl.$inject = [];
 
   function createCtrl() {
+    this.name = "";
+    this.image = "";
     this.questions = [{
       title: '',
       image: '',
@@ -43,7 +45,9 @@ define(['app'], function(app) {
     // Save quiz
     this.saveQuiz = function() {
       window.localStorage.setItem('quiz', JSON.stringify({
-        quiz: this.questions
+        name: this.name,
+        image: this.image,
+        questions: this.questions
       }));
     };
   }
