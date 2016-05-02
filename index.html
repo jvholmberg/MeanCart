@@ -9,14 +9,31 @@
   <!-- My styles -->
   <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
   <link rel="stylesheet" href="app/styles/css/general-min.css">
+  <link rel="stylesheet" href="app/styles/css/index-min.css">
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="#/create">Create</a></li>
-      <li><a href="#/play">Play</a></li>
-    </ul>
-  </nav>
+  <div class="nav-bar">
+    <nav>
+      <ul>
+        <li><a href="#/create">Create quiz</a></li>
+        <li><a href="#/play">Play</a></li>
+        <li><a href="#/play">Leaderboard</a></li>
+        <li><a href="#/play">Profile</a></li>
+      </ul>
+      <div class="nav-actions" ng-show="true">
+        <span class="btn btn-default-outline">Log In</span>
+        <span class="btn btn-default-outline">Sign up</span>
+      </div>
+      <div class="nav-actions" ng-show="false">
+        <span class="btn btn-default-outline">Profile</span>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
   <div id="appView">
     <div ng-view></div>
   </div>
