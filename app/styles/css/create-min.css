@@ -1,1 +1,1 @@
-body{background-color:#fff}.card{border:1px solid;border-color:#c2baba;overflow:hidden}
+body{background-color:#fff}.card-deck{margin:0 auto;width:60%}.card-deck .card-title{margin:1rem auto;padding:3rem;width:100%;box-sizing:border-box;background:#fff;box-shadow:2px 2px 5px #676767}.card-deck .card-title input{width:100%;height:100%;border:none;outline:none;color:#6e6e6e}.card-deck .card-question{float:left;padding-bottom:33.334%;width:33.334%;text-align:center;background-color:red}

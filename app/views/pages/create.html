@@ -1,21 +1,22 @@
 <h1>Create</h1>
-<div>
-  <input type="text" placeholder="Name" ng-model="create.name">
-    <input type="text" placeholder="Image" ng-model="create.image">
+
+
+
+<div class="card-deck">
+  <div class="card-title">
+    <input type="text" placeholder="Name" ng-model="create.name">
+  </div>
+  <div class="card-question" ng-repeat="question in create.questions">
+  </div>
 </div>
 
-<div class="card" ng-repeat="question in create.questions">
-  <div class="col col-3 q-image">
-    <img class="question" ng-src="{{question.image}}" alt="Image that has meaning to question">
-  </div>
+
+
+<div class="card" ng-repeat="question in create.questions"
   <div class="col col-9">
     <!-- Question -->
     <div class="card-row">
       <input type="text" class="txt txt-default" placeholder="Question" ng-model="question.title">
-    </div>
-    <!-- Image -->
-    <div class="card-row">
-      <input type="text" class="txt txt-default" placeholder="Image url" ng-model="question.image">
     </div>
     <!-- Options -->
     <div class="card-row">
@@ -31,6 +32,17 @@
       <button class="btn btn-success-outline" ng-click="create.removeQuestion($index)">Remove question</button>
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 </div>
