@@ -7,6 +7,17 @@
     <input type="text" placeholder="Name" ng-model="create.name">
   </div>
   <div class="card-question" ng-repeat="question in create.questions">
+    <input type="text" class="question" placeholder="Question" ng-model="question.title">
+    <div ng-repeat="option in question.options">
+      <div class="pull-left">
+        <input type="checkbox" ng-model="option.correct">
+        <input type="text" placeholder="Option" ng-model="option.text" ng-keydown="create.addOption(question, $event)">
+      </div>
+      <div>
+        <button class="btn btn-danger-outline" ng-click="create.removeOption(question, $index)">Remove</button>
+      </div>
+      <img src="app/images/icons/add.svg" alt="">
+    </div>
   </div>
 </div>
 
@@ -16,15 +27,10 @@
   <div class="col col-9">
     <!-- Question -->
     <div class="card-row">
-      <input type="text" class="txt txt-default" placeholder="Question" ng-model="question.title">
-    </div>
+      </div>
     <!-- Options -->
     <div class="card-row">
-      <div ng-repeat="option in question.options">
-        <input type="checkbox" ng-model="option.correct">
-        <input type="text" class="txt txt-default" placeholder="Option" ng-model="option.text" ng-keydown="create.addOption(question, $event)" tab-to-next>
-        <button ng-click="create.removeOption(question, $index)">Remove</button>
-      </div>
+
     </div>
     <!-- Actions -->
     <div class="card-row">

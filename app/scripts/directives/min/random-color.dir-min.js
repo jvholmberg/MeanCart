@@ -1,0 +1,1 @@
+define(["app"],function(){"use strict";function n(){return{restrict:"A",link:function(){}}}angular.directive("randomColor",n),n.$inject=[]});
