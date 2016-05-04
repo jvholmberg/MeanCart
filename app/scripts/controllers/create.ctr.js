@@ -26,17 +26,15 @@ define(['app'], function(app) {
     this.removeQuestion = function(index) {
       this.questions.splice(index, 1);
     };
-    // Add / Remove options
+    // Add / Remove options / Adjust width
     this.addOption = function(question, ev) {
-      if(question.options.length === 10) {
+      if(question.options.length >= 10) {
         return;
       }
       if(ev === undefined) {
         question.options.push({correct: false, text: ''});
       } else if(ev.code === 'Tab') {
         question.options.push({correct: false, text: ''});
-        var target = angular.element(ev.target);
-        var sibling = angular.element(target[0].nextSibling);
       }
     };
     this.removeOption = function(question, index) {
