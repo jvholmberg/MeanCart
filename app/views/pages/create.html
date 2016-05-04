@@ -8,52 +8,14 @@
   </div>
   <div class="card-question" ng-repeat="question in create.questions">
     <input type="text" class="question" placeholder="Question" ng-model="question.title">
-    <div ng-repeat="option in question.options">
-      <div class="pull-left">
-        <input type="checkbox" ng-model="option.correct">
-        <input type="text" placeholder="Option" ng-model="option.text" ng-keydown="create.addOption(question, $event)">
-      </div>
-      <div>
-        <button class="btn btn-danger-outline" ng-click="create.removeOption(question, $index)">Remove</button>
-      </div>
-      <img src="app/images/icons/add.svg" alt="">
+    <div class="option" ng-repeat="option in question.options">
+      <input type="checkbox" ng-model="option.correct">
+      <input type="text" placeholder="Option" ng-model="option.text" ng-keydown="create.addOption(question, $event)">
+      <button class="btn btn-danger" ng-click="create.removeOption(question, $index)">Remove</button>
     </div>
+    <img src="app/images/icons/add.svg" alt="Add option" ng-click="create.addOption(question)">
   </div>
+  <img src="app/images/icons/add.svg" alt="Add question" ng-click="create.addQuestion()" />
 </div>
 
-
-
-<div class="card" ng-repeat="question in create.questions"
-  <div class="col col-9">
-    <!-- Question -->
-    <div class="card-row">
-      </div>
-    <!-- Options -->
-    <div class="card-row">
-
-    </div>
-    <!-- Actions -->
-    <div class="card-row">
-      <button class="btn btn-success-outline" ng-click="create.addOption(question)">Add option</button>
-      <button class="btn btn-success-outline" ng-click="create.removeQuestion($index)">Remove question</button>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-<div>
-  <button class="btn btn-primary-outline" ng-click="create.addQuestion()">Add question</button>
-  <button class="btn btn-primary-outline" ng-click="create.saveQuiz()">Save quiz</button>
-</div>
+<button class="btn btn-primary-outline" ng-click="create.saveQuiz()">Save quiz</button>
