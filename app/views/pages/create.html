@@ -7,15 +7,19 @@
     <input type="text" placeholder="Name" ng-model="create.name">
   </div>
   <div class="card-question" ng-repeat="question in create.questions">
+    <div class="card-number"><span>{{ $index+1 }}</span></div>
     <input type="text" class="question" placeholder="Question" ng-model="question.title">
     <div class="option" ng-repeat="option in question.options">
       <input type="checkbox" ng-model="option.correct">
       <input type="text" placeholder="Option" ng-model="option.text" ng-keydown="create.addOption(question, $event)">
       <button class="btn btn-danger" ng-click="create.removeOption(question, $index)">Remove</button>
     </div>
-    <img src="app/images/icons/add.svg" alt="Add option" ng-click="create.addOption(question)">
-  </div>
-  <img src="app/images/icons/add.svg" alt="Add question" ng-click="create.addQuestion()" />
+    <div class="add-option" ng-click="create.addOption(question)">
+      <img src="app/images/icons/add.svg" alt="Add option">
+      <span>Add option</span>
+    </div>
+    </div>
+  <img src="app/images/icons/add.svg" alt="Add question" class="add-question" ng-click="create.addQuestion()" />
 </div>
 
 <button class="btn btn-primary-outline" ng-click="create.saveQuiz()">Save quiz</button>
