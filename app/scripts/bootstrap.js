@@ -1,5 +1,5 @@
 require.config({
-  baseUrl: '/quizmaker/app/scripts',
+  baseUrl: 'app/scripts',
   paths: {
 
     // Dependencies
