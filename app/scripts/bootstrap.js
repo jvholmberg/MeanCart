@@ -1,16 +1,16 @@
 require.config({
-  baseUrl: '/app/scripts',
+  baseUrl: '/quizmaker/app/scripts',
   paths: {
 
     // Dependencies
-    angular: '/quizmaker/bower_components/angular/angular',
-    angularRoute: '/quizmaker/bower_components/angular-route/angular-route',
-    angularUiRouter: '/quizmaker/node_modules/angular-ui-router/release/angular-ui-router',
-    angularCSS: '/quizmaker/bower_components/angular-css/angular-css',
+    angular: '../../quizmaker/bower_components/angular/angular',
+    angularRoute: '../../quizmaker/bower_components/angular-route/angular-route',
+    angularUiRouter: '../../quizmaker/node_modules/angular-ui-router/release/angular-ui-router',
+    angularCSS: '../../quizmaker/bower_components/angular-css/angular-css',
 
     // Modules and routing
-    app: '/quizmaker/app/scripts/app',
-    routes: '/quizmaker/app/scripts/routes',
+    app: 'app',
+    routes: 'routes',
 
     // Apis
 
