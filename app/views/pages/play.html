@@ -1,16 +1,17 @@
-<h1>Play</h1>
 
-<div>
-  <div>
-    <p class="txt-question">{{ play.currentQuestion.title }}</p>
-  </div>
-  <div ng-show="play.question.image">
-    Image goes here
-  </div>
-  <div ng-repeat="option in play.currentQuestion.options">
-
-    <span class="btn btn-primary" ng-click="play.answerQuestion($index)">
-      {{ option.text }}
-    </span>
+<img src="app/images/icons/fox.svg" alt="">
+<div class="play-card">
+  <h1>{{ play.quiz.name }}</h1>
+  <p>{{ play.currentQuestion.title }}</p>
+  <!--<img ng-src="play.question.image" ng-show="play.question.image">-->
+  <div class="options">
+    <div class="row" ng-repeat="option in play.currentQuestion.options" ng-if="$index % 2 == 0">
+      <span class="btn btn-primary" ng-click="play.answerQuestion($index)">
+        {{ play.currentQuestion.options[$index].text }}
+      </span>
+      <span class="btn btn-primary" ng-click="play.answerQuestion($index)">
+        {{ play.currentQuestion.options[$index+1].text }}
+      </span>
+    </div>
   </div>
 </div>
