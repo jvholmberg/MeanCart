@@ -9,8 +9,8 @@ require.config({
     angularCSS: '/quizmaker/bower_components/angular-css/angular-css',
 
     // Modules and routing
-    app: 'app',
-    routes: 'routes',
+    app: '/quizmaker/app/scripts/app',
+    routes: '/quizmaker/app/scripts/routes',
 
     // Apis
 
