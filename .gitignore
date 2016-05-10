@@ -4,7 +4,6 @@
 #!! ERROR: requir is undefined. Use list command to see defined gitignore types !!#
 
 ### Bower ###
-bower_components
 .bower-cache
 .bower-registry
 .bower-tmp
@@ -37,7 +36,6 @@ coverage
 build/Release
 
 # Dependency directories
-node_modules
 jspm_packages
 
 # Optional npm cache directory
