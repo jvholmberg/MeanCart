@@ -3,10 +3,10 @@ require.config({
   paths: {
 
     // Dependencies
-    angular: '../../quizmaker/bower_components/angular/angular',
-    angularRoute: '../../quizmaker/bower_components/angular-route/angular-route',
-    angularUiRouter: '../../quizmaker/node_modules/angular-ui-router/release/angular-ui-router',
-    angularCSS: '../../quizmaker/bower_components/angular-css/angular-css',
+    angular: '../../bower_components/angular/angular',
+    angularRoute: '../../bower_components/angular-route/angular-route',
+    angularUiRouter: '../../node_modules/angular-ui-router/release/angular-ui-router',
+    angularCSS: '../../bower_components/angular-css/angular-css',
 
     // Modules and routing
     app: 'app',
