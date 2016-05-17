@@ -1,0 +1,1 @@
+define(["app"],function(n){"use strict";function t(){}angular.module("app").controller("MatchmakingCtrl",t),t.$inject=[]});

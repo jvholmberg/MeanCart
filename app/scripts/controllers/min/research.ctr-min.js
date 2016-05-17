@@ -1,0 +1,1 @@
+define(["app"],function(t){"use strict";function e(){this.getRecomended=[{icon:null,title:"Marines lvl 2",desc:"Fitted with automatic rifles",type:"DMG",stat:"2"},{icon:null,title:"Tanks lvl 2",desc:"more power",type:"DMG",stat:"4"}]}angular.module("app").controller("ResearchCtrl",e),e.$inject=[]});

@@ -17,8 +17,14 @@ require.config({
     // Services
 
     // Controllers
-    createCtrl: 'controllers/create.ctr',
-    playCtrl: 'controllers/play.ctr',
+    profileCtrl: 'controllers/profile.ctr',
+    trainCtrl: 'controllers/train.ctr',
+    buildCtrl: 'controllers/build.ctr',
+    exploreCtrl: 'controllers/explore.ctr',
+    researchCtrl: 'controllers/research.ctr',
+    matchmakingCtrl: 'controllers/matchmaking.ctr',
+
+
 
     // Directives
 

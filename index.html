@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Quizmaker</title>
-
+  <title>Warzone 1941</title>
   <!-- Vendor styles -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   <!-- My styles -->
@@ -13,31 +13,8 @@
   <link rel="stylesheet" href="app/styles/css/index-min.css">
 </head>
 <body>
-  <div class="nav-bar">
-    <nav>
-      <ul>
-        <li><a href="#/create">Create quiz</a></li>
-        <li><a href="#/play">Play</a></li>
-        <li><a href="#/play">Leaderboard</a></li>
-        <li><a href="#/play">Profile</a></li>
-      </ul>
-      <div class="nav-actions" ng-show="true">
-      <span class="btn btn-default-outline">Sign up</span>
-        <span class="btn btn-default-outline">Log In</span>
-      </div>
-      <div class="nav-actions" ng-show="false">
-        <span class="btn btn-default-outline">Profile</span>
-      </div>
-    </nav>
-  </div>
-
-
-
-
-
-  <div id="appView">
-    <div ng-view></div>
-  </div>
+  <div ng-view></div>
   <script src="bower_components/requirejs/require.js" data-main="app/scripts/bootstrap"></script>
 </body>
+
 </html>
