@@ -1,0 +1,1 @@
+define(["app"],function(e){"use strict";function r(){return{restrict:"E",templateUrl:"app/scripts/directives/card/card.html",scope:{symbol:"=",number:"=",desc:"="},controller:function(e){},link:function(){}}}angular.module("app").directive("infoCard",r)});

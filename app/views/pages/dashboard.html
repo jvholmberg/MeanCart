@@ -1,0 +1,14 @@
+<h1>Dashboard</h1>
+
+<div ng-controller="OrderCtrl as order">
+  <info-card symbol="'fa fa-shopping-cart green'" number="'50SEK'" desc="'Försäljning'"></info-card>
+  <info-card symbol="'fa fa-gift yellow'" number="'50SEK'" desc="'Försäljning'"></info-card>
+  <info-card symbol="'fa fa-user red'" number="'50SEK'" desc="'Försäljning'"></info-card>
+  <info-card symbol="'fa fa-inbox'" number="'50SEK'" desc="'Försäljning'"></info-card>
+  <info-card symbol="'fa fa-money blue'" number="'50SEK'" desc="'Försäljning'"></info-card>
+  <info-card symbol="'fa fa-usd blue'" number="'50SEK'" desc="'Försäljning'"></info-card>
+</div>
+
+<div ng-controller="StatsCtrl as stats"></div>
+
+<am-chart vis="'serial'" val="dashboard.data"></am-chart>

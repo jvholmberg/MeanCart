@@ -1,5 +1,5 @@
-define(['app', 'profileCtrl', 'trainCtrl', 'buildCtrl', 'researchCtrl', 'exploreCtrl', 'matchmakingCtrl'],
-function(app, profileCtrl, trainCtrl, buildCtrl, researchCtrl, exploreCtrl, matchmakingCtrl) {
+define(['app', 'dashboardCtrl', 'statsCtrl', 'orderCtrl'],
+function(app, dashboardCtrl, statsCtrl, orderCtrl) {
   'use strict';
 
   angular
@@ -10,11 +10,26 @@ function(app, profileCtrl, trainCtrl, buildCtrl, researchCtrl, exploreCtrl, matc
 
   function config($routeProvider) {
     $routeProvider
-      .when('/profile', {
-        templateUrl: 'app/views/pages/profile.html',
-        controller: 'ProfileCtrl',
-        controllerAs: 'profile',
-        css: 'app/styles/css/profile-min.css'
-      });
+      .when('/dashboard', {
+        templateUrl: 'app/views/pages/dashboard.html',
+        controller: 'DashboardCtrl',
+        controllerAs: 'dashboard',
+        css: 'app/styles/css/dashboard-min.css'
+      })
+      .when('/stats', {
+        templateUrl: 'app/views/pages/stats.html',
+        controller: 'StatsCtrl',
+        controllerAs: 'stats',
+        css: 'app/styles/css/stats-min.css'
+      })
+      .when('/orders', {
+        templateUrl: 'app/views/pages/order.html',
+        controller: 'OrderCtrl',
+        controllerAs: 'order',
+        css: 'app/styles/css/order-min.css'
+      })
+      .otherwise({
+        redirectTo: '/dashboard'
+      })
   }
 });

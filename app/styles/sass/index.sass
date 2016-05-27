@@ -1,1 +1,26 @@
 @import "variables.sass"
+
+html
+  height: 100%
+  font-size: 10px
+body
+  height: 100%
+  font-size: 1.6rem
+  background-color: $bg-color
+  .wrapper
+    display: table
+    width: 100%
+    height: 100%
+    .nav-wrapper
+      display: table-cell
+      width: 18rem
+      height: 100%
+      background-color: $content-bg-color
+      border-right: 2px solid $border-color
+      box-sizing: border-box
+      nav
+
+    div[ng-view]
+      display: table-cell
+      padding: 2%
+      box-sizing: border-box

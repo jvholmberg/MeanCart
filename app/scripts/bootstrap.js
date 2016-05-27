@@ -3,47 +3,84 @@ require.config({
   paths: {
 
     // Dependencies
-    angular: '../../bower_components/angular/angular',
-    angularRoute: '../../bower_components/angular-route/angular-route',
-    angularUiRouter: '../../node_modules/angular-ui-router/release/angular-ui-router',
-    angularCSS: '../../bower_components/angular-css/angular-css',
+    'angular': '../../bower_components/angular/angular',
+    'angularRoute': '../../bower_components/angular-route/angular-route',
+    'angularUiRouter': '../../node_modules/angular-ui-router/release/angular-ui-router',
+    'angularCSS': '../../bower_components/angular-css/angular-css',
+
+    // Amcharts
+    'amcharts': '../../bower_components/amcharts/dist/amcharts/amcharts',
+    'amcharts.serial': '../../bower_components/amcharts/dist/amcharts/serial',
+    'amcharts.pie': '../../bower_components/amcharts/dist/amcharts/pie',
+    'amcharts.plugins.responsive': '../../bower_components/amcharts/dist/amcharts/plugins/responsive/responsive.min',
+    'amcharts.plugins.dataloader': '../../bower_components/amcharts/dist/amcharts/plugins/dataloader/dataloader.min',
+    'amcharts.plugins.export': '../../bower_components/amcharts/dist/amcharts/plugins/export/export.min',
 
     // Modules and routing
-    app: 'app',
-    routes: 'routes',
+    'app': 'app',
+    'routes': 'routes',
 
     // Apis
 
     // Services
 
     // Controllers
-    profileCtrl: 'controllers/profile.ctr',
-    trainCtrl: 'controllers/train.ctr',
-    buildCtrl: 'controllers/build.ctr',
-    exploreCtrl: 'controllers/explore.ctr',
-    researchCtrl: 'controllers/research.ctr',
-    matchmakingCtrl: 'controllers/matchmaking.ctr',
-
+    'dashboardCtrl': 'controllers/dashboard.ctr',
+    'statsCtrl': 'controllers/stats.ctr',
+    'orderCtrl': 'controllers/order.ctr',
 
 
     // Directives
+    'infoCard': 'directives/card/card.dir',
+    'chart': 'directives/chart/chart.dir',
 
   },
   shim: {
-    angularRoute: {
+    'angularRoute': {
       deps: ['angular']
     },
-    angularUiRouter: {
+    'angularUiRouter': {
       deps: ['angular']
     },
-    angularCSS: {
+    'angularCSS': {
       deps: ['angular']
     },
-    app: {
+    'app': {
       deps: ['angular']
     },
-    routes: {
+    'routes': {
       deps: ['angularRoute', 'angularUiRouter', 'angularCSS', 'app']
+    },
+    'amcharts.pie': {
+      deps: [ 'amcharts' ],
+      exports: 'AmCharts',
+      init: function() {
+        AmCharts.isReady = true;
+      }
+    },
+    'amcharts.serial': {
+      deps: [ 'amcharts' ],
+      exports: 'AmCharts',
+      init: function() {
+        AmCharts.isReady = true;
+      }
+    },
+    'amcharts.plugins.responsive': {
+      deps: [ 'amcharts' ]
+    },
+    'amcharts.plugins.dataloader': {
+      deps: [ 'amcharts' ]
+    },
+    'amcharts.plugins.export': {
+      deps: [ 'amcharts' ],
+      init: function() {
+        // CSS exception; load once it's ready
+        var link = document.createElement("link");
+        link.type = "text/css";
+        link.rel = "stylesheet";
+        link.href = "//cdn.amcharts.com/lib/3/plugins/export/export.css";
+        document.getElementsByTagName("head")[0].appendChild(link);
+      }
     }
   }
 });
