@@ -1,0 +1,20 @@
+<ng-include src="'/app/views/templates/inventory/category.html'"></ng-include>
+<div ng-show="!category.editMode">
+  <button ng-click="category.create()">Save</button>
+  <button>Cancel</button>
+</div>
+<div ng-show="category.editMode">
+  <button ng-click="category.update(category.category)">Update</button>
+  <button>Cancel</button>
+</div>
+
+<ul>
+  <li ng-repeat="cat in category.categories">
+    <div>
+      <span>{{ cat.title }}</span>
+      <span>{{ cat.description }}</span>
+      <button ng-click="category.edit(cat._id)">Edit</button>
+      <button ng-click="category.delete(cat._id)">Delete</button>
+    </div>
+  </li>
+</ul>

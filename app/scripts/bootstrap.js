@@ -21,6 +21,7 @@ require.config({
     'routes': 'routes',
 
     // Apis
+    'webApi': 'apis/web.api',
 
     // Services
 
@@ -28,11 +29,13 @@ require.config({
     'dashboardCtrl': 'controllers/dashboard.ctr',
     'statsCtrl': 'controllers/stats.ctr',
     'orderCtrl': 'controllers/order.ctr',
+    'inventoryCtrl': 'controllers/inventory.ctr',
+    'productCtrl': 'controllers/product.ctr',
+    'categoryCtrl': 'controllers/category.ctr',
 
 
     // Directives
     'infoCard': 'directives/card/card.dir',
-    'chart': 'directives/chart/chart.dir',
 
   },
   shim: {

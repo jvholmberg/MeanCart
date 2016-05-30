@@ -1,1 +1,1 @@
-define(["app"],function(n){"use strict";function e(){}angular.module("app").controller("OrderCtrl",e),e.$inject=[]});
+define(["app"],function(r){"use strict";function e(){console.log("OrderCtrl")}angular.module("app").controller("OrderCtrl",e),e.$inject=[]});

@@ -1,0 +1,78 @@
+<form>
+  <fieldset>
+    <legend>Product details</legend>
+    <p>
+      <label for="title">Product title</label>
+      <input type="text" id="title" ng-model="category.product.title" />
+    </p>
+    <p>
+      <label for="summary">Product summary</label>
+      <input type="text" id="summary" ng-model="category.product.summary" />
+    </p>
+    <p>
+      <label for="desc">Product description</label>
+      <textarea type="text" id="desc" ng-model="category.product.description"></textarea>
+    </p>
+  </fieldset>
+  <fieldset>
+    <legend>Categorisation</legend>
+    <p>
+      <label for="category">Category</label>
+      <select id="category" ng-model="category.product.category"></select>
+    </p>
+    <p>
+      <label for="brand">Brand</label>
+      <select id="brand" ng-model="category.product.brand"></select>
+    </p>
+    <p>
+      <label for="collection">Collection</label>
+      <select id="collection" ng-model="category.product.collection"></select>
+    </p>
+  </fieldset>
+  <fieldset>
+    <legend>Inventory management</legend>
+    <p>
+      <label for="sku">SKU</label>
+      <input type="text" id="sku" ng-model="category.product.sku" />
+    </p>
+    <p>
+      <label for="price">Price</label>
+      <input type="text" id="price" ng-model="category.product.price" />
+    </p>
+    <p>
+      <label for="Sale-price">Sale price</label>
+      <input type="text" id="sale-price" ng-model="category.product.salePrice" />
+    </p>
+    <p>
+      <label for="stock-level">Stock level</label>
+      <input type="text" id="stock-level" ng-model="category.product.stockLevel" />
+    </p>
+    <p>
+      <label for="stock-status">Stock status</label>
+      <input type="text" id="stock-status" ng-model="category.product.stockStatus" />
+    </p>
+  </fieldset>
+  <fieldset>
+    <legend>Shipping information</legend>
+    <p>
+      <label for="weight">Weight</label>
+      <input type="text" id="weight" ng-model="category.product.weight" />
+    </p>
+    <p>
+      <label for="width">Width</label>
+      <input type="text" id="width" ng-model="category.product.width" />
+    </p>
+    <p>
+      <label for="height">Height</label>
+      <input type="text" id="height" ng-model="category.product.height" />
+    </p>
+    <p>
+      <label for="depth">Depth</label>
+      <input type="text" id="depth" ng-model="category.product.depth" />
+    </p>
+  </fieldset>
+  <div>
+    <button ng-click="category.save()">Save</button>
+    <button>Cancel</button>
+  </div>
+</form>

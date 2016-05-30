@@ -8,6 +8,6 @@ define(['app'], function(app) {
     orderCtrl.$inject = [];
 
     function orderCtrl() {
-
+      console.log('OrderCtrl');
     }
 });

@@ -1,0 +1,1 @@
+define(["app"],function(n){"use strict";function o(){console.log("InventoryCtrl")}angular.module("app").controller("InventoryCtrl",o),o.$inject=[]});

@@ -8,6 +8,6 @@ define(['app'], function(app) {
     statsCtrl.$inject = [];
 
     function statsCtrl() {
-
+      console.log('StatsCtrl');
     }
 });

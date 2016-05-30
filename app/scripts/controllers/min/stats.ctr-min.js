@@ -1,1 +1,1 @@
-define(["app"],function(t){"use strict";function n(){}angular.module("app").controller("StatsCtrl",n),n.$inject=[]});
+define(["app"],function(t){"use strict";function n(){console.log("StatsCtrl")}angular.module("app").controller("StatsCtrl",n),n.$inject=[]});
