@@ -3,8 +3,13 @@
     <legend>Create category</legend>
     <p>
       <label for="parent">Parent category</label>
-      <select id="parent" ng-model="category.category.parent">
-        <option value="cat._id" ng-repeat="cat in category.categories">{{ cat.title }}</option>
+      <select id="parent" ng-model="category.category.parentCategory">
+        <option value="">Select</option>
+        <option ng-value="cat._id"
+          ng-repeat="cat in category.categories"
+          ng-selected="cat._id == category.category.parentCategory ">
+          {{ cat.title }}
+        </option>
       </select>
     </p>
     <p>

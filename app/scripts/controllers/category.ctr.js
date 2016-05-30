@@ -50,10 +50,10 @@ define(['app', 'webApi'], function(app, webApi) {
 				}
 			}
 		};
-		this.update = function(category) {
-			category['_id'] = this.editMode;
+		this.update = function(cat) {
+			cat['_id'] = this.editMode;
 			this.editMode = false;
-			webApi.request('POST', 'category/update', category)
+			webApi.request('POST', 'category/update', cat)
 				.then(function successCallback(res) {
 					console.log(res);
 				}, function errorCallback(res) {
@@ -75,6 +75,14 @@ define(['app', 'webApi'], function(app, webApi) {
 					console.log(res);
 				}).then(getAllCategories);
 		};
+    this.cancel = function() {
+      this.category = {
+				parentCategory: null,
+				title: null,
+				description: null
+			};
+      this.editMode = false;
+    };
 
 		function getAllCategories() {
 			webApi.request('POST', 'category/all')
