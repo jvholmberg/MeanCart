@@ -69,7 +69,33 @@ function(app, dashboardCtrl, statsCtrl, orderCtrl, inventoryCtrl, categoryCtrl, 
         templateUrl: 'app/views/pages/inventory/product.html',
         controller: 'ProductCtrl',
         controllerAs: 'product',
-        css: 'app/styles/css/inventory-min.css'
+        css: 'app/styles/css/inventory-min.css',
+        resolve: {
+          categories: function($q, webApi) {
+            console.log('Loading categories');
+            var deferred = $q.defer();
+             webApi.request('POST', 'category/all')
+              .then(function successCallback(res) {
+                deferred.resolve(res.data);
+                return res;
+              }, function errorCallback(res) {
+
+              });
+            return deferred.promise;
+          },
+          products: function($q, webApi) {
+            console.log('Loading products');
+            var deferred = $q.defer();
+             webApi.request('POST', 'product/all')
+              .then(function successCallback(res) {
+                deferred.resolve(res.data);
+                return res;
+              }, function errorCallback(res) {
+
+              });
+            return deferred.promise;
+          }
+        }
       })
       /**
        * @summary Redirct when invalid route

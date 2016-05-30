@@ -1,1 +1,19 @@
 <ng-include src="'/app/views/templates/inventory/product.html'"></ng-include>
+<div ng-show="!product.editMode">
+  <button ng-click="product.create()">Save</button>
+  <button ng-click="product.cancel()">Reset</button>
+</div>
+<div ng-show="product.editMode">
+  <button ng-click="product.update(product.product)">Update</button>
+  <button ng-click="product.cancel()">Cancel</button>
+</div>
+<ul>
+  <li ng-repeat="prod in product.products">
+    <div>
+      <span>{{ prod.title }}</span>
+      <span>{{ prod.description }}</span>
+      <button ng-click="product.edit(prod._id)">Edit</button>
+      <button ng-click="product.delete(prod._id)">Delete</button>
+    </div>
+  </li>
+</ul>

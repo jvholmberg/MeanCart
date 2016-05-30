@@ -1,11 +1,11 @@
 <ng-include src="'/app/views/templates/inventory/category.html'"></ng-include>
 <div ng-show="!category.editMode">
   <button ng-click="category.create()">Save</button>
-  <button>Cancel</button>
+  <button ng-click="category.cancel()">Reset</button>
 </div>
 <div ng-show="category.editMode">
   <button ng-click="category.update(category.category)">Update</button>
-  <button>Cancel</button>
+  <button ng-click="category.cancel()">Cancel</button>
 </div>
 
 <ul>

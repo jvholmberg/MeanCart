@@ -15,13 +15,11 @@ define(['app', 'webApi'], function(app, webApi) {
 
 		// Make categories available in scope
 		this.categories = categories;
-		this.default = {
-			// Product details
+		this.category = {
 			parentCategory: null,
 			title: null,
 			description: null
 		};
-		this.category = this.default;
 
 		// CRUD
 		this.create = function() {
@@ -31,12 +29,9 @@ define(['app', 'webApi'], function(app, webApi) {
 				}, function errorCallback(res) {
 					console.log(res);
 				}).then(getAllCategories);
-			this.category = {
-				parentCategory: null,
-				title: null,
-				description: null
-			};
+			this.cancel();
 		};
+
 		this.edit = function(id) {
 			// Stop execution if no categories exist
 			if (this.categories === null) {
@@ -50,21 +45,18 @@ define(['app', 'webApi'], function(app, webApi) {
 				}
 			}
 		};
+
 		this.update = function(cat) {
 			cat['_id'] = this.editMode;
-			this.editMode = false;
 			webApi.request('POST', 'category/update', cat)
 				.then(function successCallback(res) {
 					console.log(res);
 				}, function errorCallback(res) {
 					console.log(res);
 				}).then(getAllCategories);
-			this.category = {
-				parentCategory: null,
-				title: null,
-				description: null
-			};
+			this.cancel();
 		};
+
 		this.delete = function(id) {
 			webApi.request('POST', 'category/delete', {
 					_id: id
@@ -75,6 +67,7 @@ define(['app', 'webApi'], function(app, webApi) {
 					console.log(res);
 				}).then(getAllCategories);
 		};
+
     this.cancel = function() {
       this.category = {
 				parentCategory: null,

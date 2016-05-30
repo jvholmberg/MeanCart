@@ -5,10 +5,13 @@ define(['app', 'webApi'], function(app, webApi) {
     .module('app')
     .controller('ProductCtrl', productCtrl);
 
-    productCtrl.$inject = [];
-    function productCtrl() {
-      console.log('CategoryCtrl');
+    productCtrl.$inject = ['webApi', 'categories', 'products'];
+    function productCtrl(webApi, categories, products) {
+      console.log('ProductCtrl');
+  		var self = this;
 
+      this.categories = categories;
+      this.products = products;
       this.product = {
         // Product details
         title: null,
@@ -17,7 +20,6 @@ define(['app', 'webApi'], function(app, webApi) {
         // Categorisation
         category: null,
         brand: null,
-        collection: null,
         // Inventory management
         sku: null,
         price: null,
@@ -30,8 +32,86 @@ define(['app', 'webApi'], function(app, webApi) {
         height: null,
         depth: null
       };
-      this.save = function() {
-        console.log(this);
+      this.editMode = false;
+
+      // CRUD
+  		this.create = function() {
+  			webApi.request('POST', 'product/create', this.product)
+  				.then(function successCallback(res) {
+  					console.log(res);
+  				}, function errorCallback(res) {
+  					console.log(res);
+  				}).then(getAllProducts);
+  			this.cancel();
+  		};
+
+  		this.edit = function(id) {
+  			// Stop execution if no categories exist
+  			if (this.products === null) {
+  				return;
+  			}
+  			// Locate product to edit
+  			for (var i = 0; i < this.products.length; i++) {
+  				if (this.products[i]._id === id) {
+  					this.editMode = this.products[i]._id;
+  					this.product = this.products[i];
+  				}
+  			}
+  		};
+
+  		this.update = function(cat) {
+  			cat['_id'] = this.editMode;
+  			webApi.request('POST', 'product/update', cat)
+  				.then(function successCallback(res) {
+  					console.log(res);
+  				}, function errorCallback(res) {
+  					console.log(res);
+  				}).then(getAllProducts);
+  			this.cancel();
+  		};
+
+  		this.delete = function(id) {
+  			webApi.request('POST', 'product/delete', {
+  					_id: id
+  				})
+  				.then(function successCallback(res) {
+  					console.log(res);
+  				}, function errorCallback(res) {
+  					console.log(res);
+  				}).then(getAllProducts);
+  		};
+
+      this.cancel = function() {
+        this.product = {
+          // Product details
+          title: null,
+          summary: null,
+          description: null,
+          // Categorisation
+          category: null,
+          brand: null,
+          // Inventory management
+          sku: null,
+          price: null,
+          salePrice: null,
+          stockLevel: null,
+          stockStatus: null,
+          // Shipping information
+          weight: null,
+          width: null,
+          height: null,
+          depth: null
+        };
+        this.editMode = false;
       };
+
+  		function getAllProducts() {
+  			webApi.request('POST', 'product/all')
+  				.then(function successCallback(res) {
+  					self.products = res.data;
+  				}, function errorCallback(res) {
+
+  				});
+  		}
     }
 });
