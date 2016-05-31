@@ -5,12 +5,13 @@ define(['app', 'webApi'], function(app, webApi) {
     .module('app')
     .controller('ProductCtrl', productCtrl);
 
-    productCtrl.$inject = ['webApi', 'categories', 'products'];
-    function productCtrl(webApi, categories, products) {
+    productCtrl.$inject = ['webApi', 'categories', 'products', 'brands'];
+    function productCtrl(webApi, categories, products, brands) {
       console.log('ProductCtrl');
   		var self = this;
 
       this.categories = categories;
+      this.brands = brands;
       this.products = products;
       this.product = {
         // Product details
@@ -39,14 +40,14 @@ define(['app', 'webApi'], function(app, webApi) {
   			webApi.request('POST', 'product/create', this.product)
   				.then(function successCallback(res) {
   					console.log(res);
+      			self.cancel();
   				}, function errorCallback(res) {
   					console.log(res);
   				}).then(getAllProducts);
-  			this.cancel();
   		};
 
   		this.edit = function(id) {
-  			// Stop execution if no categories exist
+  			// Stop execution if no products exist
   			if (this.products === null) {
   				return;
   			}
@@ -64,10 +65,10 @@ define(['app', 'webApi'], function(app, webApi) {
   			webApi.request('POST', 'product/update', cat)
   				.then(function successCallback(res) {
   					console.log(res);
+      			self.cancel();
   				}, function errorCallback(res) {
   					console.log(res);
   				}).then(getAllProducts);
-  			this.cancel();
   		};
 
   		this.delete = function(id) {
@@ -110,7 +111,7 @@ define(['app', 'webApi'], function(app, webApi) {
   				.then(function successCallback(res) {
   					self.products = res.data;
   				}, function errorCallback(res) {
-
+            console.log(res);
   				});
   		}
     }

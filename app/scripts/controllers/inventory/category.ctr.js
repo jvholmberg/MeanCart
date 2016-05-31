@@ -26,10 +26,10 @@ define(['app', 'webApi'], function(app, webApi) {
 			webApi.request('POST', 'category/create', this.category)
 				.then(function successCallback(res) {
 					console.log(res);
+					self.cancel();
 				}, function errorCallback(res) {
 					console.log(res);
 				}).then(getAllCategories);
-			this.cancel();
 		};
 
 		this.edit = function(id) {
@@ -51,10 +51,10 @@ define(['app', 'webApi'], function(app, webApi) {
 			webApi.request('POST', 'category/update', cat)
 				.then(function successCallback(res) {
 					console.log(res);
+					self.cancel();
 				}, function errorCallback(res) {
 					console.log(res);
 				}).then(getAllCategories);
-			this.cancel();
 		};
 
 		this.delete = function(id) {
@@ -81,8 +81,9 @@ define(['app', 'webApi'], function(app, webApi) {
 			webApi.request('POST', 'category/all')
 				.then(function successCallback(res) {
 					self.categories = res.data;
+					console.log(res);
 				}, function errorCallback(res) {
-
+					console.log(res);
 				});
 		}
 	}

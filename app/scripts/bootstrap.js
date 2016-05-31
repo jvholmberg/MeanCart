@@ -29,9 +29,10 @@ require.config({
     'dashboardCtrl': 'controllers/dashboard.ctr',
     'statsCtrl': 'controllers/stats.ctr',
     'orderCtrl': 'controllers/order.ctr',
-    'inventoryCtrl': 'controllers/inventory.ctr',
-    'productCtrl': 'controllers/product.ctr',
-    'categoryCtrl': 'controllers/category.ctr',
+    'inventoryCtrl': 'controllers/inventory/inventory.ctr',
+    'categoryCtrl': 'controllers/inventory/category.ctr',
+    'brandCtrl': 'controllers/inventory/brand.ctr',
+    'productCtrl': 'controllers/inventory/product.ctr',
 
 
     // Directives

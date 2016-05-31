@@ -1,5 +1,5 @@
-define(['app', 'dashboardCtrl', 'statsCtrl', 'orderCtrl', 'inventoryCtrl', 'categoryCtrl', 'productCtrl', 'webApi'],
-function(app, dashboardCtrl, statsCtrl, orderCtrl, inventoryCtrl, categoryCtrl, productCtrl, webApi) {
+define(['app', 'dashboardCtrl', 'statsCtrl', 'orderCtrl', 'inventoryCtrl', 'categoryCtrl', 'brandCtrl', 'productCtrl', 'webApi'],
+function(app, dashboardCtrl, statsCtrl, orderCtrl, inventoryCtrl, categoryCtrl, brandCtrl, productCtrl, webApi) {
   'use strict';
 
   angular
@@ -41,7 +41,7 @@ function(app, dashboardCtrl, statsCtrl, orderCtrl, inventoryCtrl, categoryCtrl, 
        * /inventory/product/edit/:id
        */
       .when('/inventory', {
-        templateUrl: 'app/views/pages/inventory.html',
+        templateUrl: 'app/views/pages/inventory/inventory.html',
         controller: 'InventoryCtrl',
         controllerAs: 'inventory',
         css: 'app/styles/css/inventory-min.css'
@@ -65,6 +65,25 @@ function(app, dashboardCtrl, statsCtrl, orderCtrl, inventoryCtrl, categoryCtrl, 
           }
         }
       })
+      .when('/inventory/brand', {
+        templateUrl: 'app/views/pages/inventory/brand.html',
+        controller: 'BrandCtrl',
+        controllerAs: 'brand',
+        css: 'app/styles/css/inventory-min.css',
+        resolve: {
+          brands: function($q, webApi) {
+            var deferred = $q.defer();
+             webApi.request('POST', 'brand/all')
+              .then(function successCallback(res) {
+                deferred.resolve(res.data);
+                return res;
+              }, function errorCallback(res) {
+
+              });
+            return deferred.promise;
+          }
+        }
+      })
       .when('/inventory/product', {
         templateUrl: 'app/views/pages/inventory/product.html',
         controller: 'ProductCtrl',
@@ -75,6 +94,18 @@ function(app, dashboardCtrl, statsCtrl, orderCtrl, inventoryCtrl, categoryCtrl, 
             console.log('Loading categories');
             var deferred = $q.defer();
              webApi.request('POST', 'category/all')
+              .then(function successCallback(res) {
+                deferred.resolve(res.data);
+                return res;
+              }, function errorCallback(res) {
+
+              });
+            return deferred.promise;
+          },
+          brands: function($q, webApi) {
+            console.log('Loading brands');
+            var deferred = $q.defer();
+             webApi.request('POST', 'brand/all')
               .then(function successCallback(res) {
                 deferred.resolve(res.data);
                 return res;
