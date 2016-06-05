@@ -1,36 +1,31 @@
 <form>
   <fieldset>
     <legend>Product details</legend>
-    <p>
-      <label for="title">Product title</label>
-      <input type="text" id="title" ng-model="product.product.title" />
-    </p>
-    <p>
-      <label for="summary">Product summary</label>
-      <input type="text" id="summary" ng-model="product.product.summary" />
-    </p>
-    <p>
-      <label for="desc">Product description</label>
-      <textarea type="text" id="desc" ng-model="product.product.description"></textarea>
-    </p>
+    <div>
+      <input type="text" class="form-control" placeholder="Name" ng-model="product.product.name">
+    </div>
+    <div>
+      <input type="text" class="form-control" placeholder="Summary" ng-model="product.product.summary">
+    </div>
+    <div>
+      <textarea type="text" class="form-control" placeholder="Description" ng-model="product.product.description"></textarea>
+    </div>
   </fieldset>
   <fieldset>
     <legend>Categorisation</legend>
     <p>
-      <label for="category">Category</label>
-      <select id="category" ng-model="product.product.category">
-        <option value="">Select</option>
+      <select class="form-control" ng-model="product.product.category">
+        <option value="">Select Category</option>
         <option ng-value="cat._id"
           ng-repeat="cat in product.categories"
-          ng-selected="cat._id == product.product.category ">
-          {{ cat.title }}
+          ng-selected="cat._id == product.product.category">
+          {{ cat.name }}
         </option>
       </select>
     </p>
     <p>
-      <label for="brand">Brand</label>
-      <select id="brand" ng-model="product.product.brand">
-        <option value="">Select</option>
+      <select class="form-control" ng-model="product.product.brand">
+        <option value="">Select Brand</option>
         <option ng-value="brnd._id"
           ng-repeat="brnd in product.brands"
           ng-selected="brnd._id == product.product.brand ">
@@ -41,62 +36,55 @@
   </fieldset>
   <fieldset>
     <legend>Inventory management</legend>
-    <p>
-      <label for="sku">SKU</label>
-      <input type="text" id="sku" ng-model="product.product.sku" />
-    </p>
-    <p>
-      <label for="price">Price</label>
-      <input type="text" id="price" ng-model="product.product.price" />
-    </p>
-    <p>
-      <label for="Sale-price">Sale price</label>
-      <input type="text" id="sale-price" ng-model="product.product.salePrice" />
-    </p>
-    <p>
-      <label for="stock-level">Stock level</label>
-      <input type="text" id="stock-level" ng-model="product.product.stockLevel" />
-    </p>
-    <p>
-      <label for="stock-status">Stock status</label>
-      <input type="text" id="stock-status" ng-model="product.product.stockStatus" />
-    </p>
+    <div>
+      <input type="text" class="form-control" placeholder="SKU" ng-model="product.product.sku">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="price">SEK</span>
+      <input type="text" class="form-control" placeholder="Price" aria-describedby="price" ng-model="product.product.price">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="sale-price">SEK</span>
+      <input type="text" class="form-control" placeholder="Sale price" aria-describedby="sale-price" ng-model="product.product.salePrice">
+    </div>
+    <div>
+      <input type="text" class="form-control" placeholder="Stock level" ng-model="product.product.stockLevel">
+    </div>
+    <div>
+      <input type="text" class="form-control" placeholder="Stock status" ng-model="product.product.stockStatus">
+    </div>
   </fieldset>
   <fieldset>
     <legend>Shipping information</legend>
-    <p>
-      <label for="weight">Weight</label>
-      <input type="text" id="weight" ng-model="product.product.weight" />
-    </p>
-    <p>
-      <label for="width">Width</label>
-      <input type="text" id="width" ng-model="product.product.width" />
-    </p>
-    <p>
-      <label for="height">Height</label>
-      <input type="text" id="height" ng-model="product.product.height" />
-    </p>
-    <p>
-      <label for="depth">Depth</label>
-      <input type="text" id="depth" ng-model="product.product.depth" />
-    </p>
+    <div>
+      <input type="text" class="form-control" placeholder="Weight" ng-model="product.product.weight" />
+    </div>
+    <div>
+      <input type="text" class="form-control" placeholder="Width" ng-model="product.product.width" />
+    </div>
+    <div>
+      <input type="text" class="form-control" placeholder="Height" ng-model="product.product.height" />
+    </div>
+    <div>
+      <input type="text" class="form-control" placeholder="Depth" ng-model="product.product.depth" />
+    </div>
   </fieldset>
 </form>
 <div ng-show="!product.editMode">
-  <button ng-click="product.create()">Save</button>
-  <button ng-click="product.cancel()">Reset</button>
+  <button class="btn btn-success" ng-click="product.create()">Save</button>
+  <button class="btn btn-warning" ng-click="product.cancel()">Reset</button>
 </div>
 <div ng-show="product.editMode">
-  <button ng-click="product.update(product.product)">Update</button>
-  <button ng-click="product.cancel()">Cancel</button>
+  <button class="btn btn-success" ng-click="product.update(product.product)">Update</button>
+  <button class="btn btn-warning" ng-click="product.cancel()">Cancel</button>
 </div>
 <ul>
   <li ng-repeat="prod in product.products">
     <div>
-      <span>{{ prod.title }}</span>
+      <span>{{ prod.name }}</span>
       <span>{{ prod.description }}</span>
-      <button ng-click="product.edit(prod._id)">Edit</button>
-      <button ng-click="product.delete(prod._id)">Delete</button>
+      <button class="btn btn-primary" ng-click="product.edit(prod._id)">Edit</button>
+      <button class="btn btn-danger" ng-click="product.delete(prod._id)">Delete</button>
     </div>
   </li>
 </ul>

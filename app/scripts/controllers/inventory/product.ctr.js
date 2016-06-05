@@ -1,4 +1,4 @@
-define(['app', 'webApi'], function(app, webApi) {
+define(['app', 'webApi', 'bootstrap.dropdown'], function(app, webApi) {
   'use strict';
 
   angular
@@ -15,7 +15,7 @@ define(['app', 'webApi'], function(app, webApi) {
       this.products = products;
       this.product = {
         // Product details
-        title: null,
+        name: null,
         summary: null,
         description: null,
         // Categorisation
@@ -85,7 +85,7 @@ define(['app', 'webApi'], function(app, webApi) {
       this.cancel = function() {
         this.product = {
           // Product details
-          title: null,
+          name: null,
           summary: null,
           description: null,
           // Categorisation

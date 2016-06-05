@@ -2,11 +2,22 @@ require.config({
   baseUrl: 'app/scripts',
   paths: {
 
-    // Dependencies
+    // jQuery
+    'jQuery': '../../bower_components/jquery/dist/jquery.min',
+
+    // Angular
     'angular': '../../bower_components/angular/angular',
     'angularRoute': '../../bower_components/angular-route/angular-route',
     'angularUiRouter': '../../node_modules/angular-ui-router/release/angular-ui-router',
     'angularCSS': '../../bower_components/angular-css/angular-css',
+
+    // Botstrap
+    'bootstrap': '../../bower_components/bootstrap-sass/assets/javascripts/bootstrap',
+    'bootstrap.dropdown': '../../bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown',
+    'bootstrap.button': '../../bower_components/bootstrap-sass/assets/javascripts/bootstrap/button',
+    'bootstrap.tab': '../../bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab',
+    'bootstrap.tooltip': '../../bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip',
+    'bootstrap.alert': '../../bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert',
 
     // Amcharts
     'amcharts': '../../bower_components/amcharts/dist/amcharts/amcharts',
@@ -26,9 +37,9 @@ require.config({
     // Services
 
     // Controllers
-    'dashboardCtrl': 'controllers/dashboard.ctr',
-    'statsCtrl': 'controllers/stats.ctr',
-    'orderCtrl': 'controllers/order.ctr',
+    'dashboardCtrl': 'controllers/dashboard/dashboard.ctr',
+    'statsCtrl': 'controllers/stats/stats.ctr',
+    'orderCtrl': 'controllers/order/order.ctr',
     'inventoryCtrl': 'controllers/inventory/inventory.ctr',
     'categoryCtrl': 'controllers/inventory/category.ctr',
     'brandCtrl': 'controllers/inventory/brand.ctr',
@@ -54,6 +65,9 @@ require.config({
     },
     'routes': {
       deps: ['angularRoute', 'angularUiRouter', 'angularCSS', 'app']
+    },
+    'bootstrap.dropdown': {
+      deps: [ 'bootstrap', 'jQuery']
     },
     'amcharts.pie': {
       deps: [ 'amcharts' ],

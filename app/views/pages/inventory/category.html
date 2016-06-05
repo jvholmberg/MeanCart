@@ -1,43 +1,40 @@
 <form>
   <fieldset>
     <legend>Create category</legend>
-    <p>
-      <label for="parent">Parent category</label>
-      <select id="parent" ng-model="category.category.parentCategory">
-        <option value="">Select</option>
+    <div>
+      <select class="form-control" ng-model="category.category.parentCategory">
+        <option value="">Parent category</option>
         <option ng-value="cat._id"
           ng-repeat="cat in category.categories"
           ng-selected="cat._id == category.category.parentCategory ">
-          {{ cat.title }}
+          {{ cat.name }}
         </option>
       </select>
-    </p>
-    <p>
-      <label for="title">Title</label>
-      <input type="text" id="title" ng-model="category.category.title">
-    </p>
-    <p>
-      <label for="desc">Description</label>
-      <textarea type="text" id="desc" ng-model="category.category.description"></textarea>
-    </p>
+    </div>
+    <div>
+      <input type="text" class="form-control" placeholder="Name" ng-model="category.category.name">
+    </div>
+    <div>
+      <textarea type="text" class="form-control" placeholder="Description" ng-model="category.category.description"></textarea>
+    </div>
   </fieldset>
 </form>
 <div ng-show="!category.editMode">
-  <button ng-click="category.create()">Save</button>
-  <button ng-click="category.cancel()">Reset</button>
+  <button class="btn btn-success" ng-click="category.create()">Save</button>
+  <button class="btn btn-warning" ng-click="category.cancel()">Reset</button>
 </div>
 <div ng-show="category.editMode">
-  <button ng-click="category.update(category.category)">Update</button>
-  <button ng-click="category.cancel()">Cancel</button>
+  <button class="btn btn-success" ng-click="category.update(category.category)">Update</button>
+  <button class="btn btn-warning" ng-click="category.cancel()">Cancel</button>
 </div>
 
 <ul>
   <li ng-repeat="cat in category.categories">
     <div>
-      <span>{{ cat.title }}</span>
+      <span>{{ cat.name }}</span>
       <span>{{ cat.description }}</span>
-      <button ng-click="category.edit(cat._id)">Edit</button>
-      <button ng-click="category.delete(cat._id)">Delete</button>
+      <button class="btn btn-primary" ng-click="category.edit(cat._id)">Edit</button>
+      <button class="btn btn-danger" ng-click="category.delete(cat._id)">Delete</button>
     </div>
   </li>
 </ul>

@@ -1,32 +1,30 @@
 <form>
   <fieldset>
     <legend>Create Brand</legend>
-    <p>
-      <label for="name">Name</label>
-      <input type="text" id="name" ng-model="brand.brand.name">
-    </p>
-    <p>
-      <label for="desc">Description</label>
-      <textarea type="text" id="desc" ng-model="brand.brand.description"></textarea>
-    </p>
+    <div>
+      <input type="text" class="form-control" placeholder="Name" ng-model="brand.brand.name">
+    </div>
+    <div>
+      <textarea type="text" class="form-control" placeholder="Description" ng-model="brand.brand.description"></textarea>
+    </div>
   </fieldset>
 </form>
 <div ng-show="!brand.editMode">
-  <button ng-click="brand.create()">Save</button>
-  <button ng-click="brand.cancel()">Reset</button>
+  <button class="btn btn-success" ng-click="brand.create()">Save</button>
+  <button class="btn btn-warning" ng-click="brand.cancel()">Reset</button>
 </div>
 <div ng-show="brand.editMode">
-  <button ng-click="brand.update(brand.brand)">Update</button>
-  <button ng-click="brand.cancel()">Cancel</button>
+  <button class="btn btn-success" ng-click="brand.update(brand.brand)">Update</button>
+  <button class="btn btn-warning" ng-click="brand.cancel()">Cancel</button>
 </div>
 
 <ul>
   <li ng-repeat="brnd in brand.brands">
     <div>
-      <span>{{ brnd.title }}</span>
+      <span>{{ brnd.name }}</span>
       <span>{{ brnd.description }}</span>
-      <button ng-click="brand.edit(brnd._id)">Edit</button>
-      <button ng-click="brand.delete(brnd._id)">Delete</button>
+      <button class="btn btn-primary" ng-click="brand.edit(brnd._id)">Edit</button>
+      <button class="btn btn-danger" ng-click="brand.delete(brnd._id)">Delete</button>
     </div>
   </li>
 </ul>

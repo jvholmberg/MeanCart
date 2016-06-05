@@ -17,7 +17,7 @@ define(['app', 'webApi'], function(app, webApi) {
 		this.categories = categories;
 		this.category = {
 			parentCategory: null,
-			title: null,
+			name: null,
 			description: null
 		};
 
@@ -71,7 +71,7 @@ define(['app', 'webApi'], function(app, webApi) {
     this.cancel = function() {
       this.category = {
 				parentCategory: null,
-				title: null,
+				name: null,
 				description: null
 			};
       this.editMode = false;
